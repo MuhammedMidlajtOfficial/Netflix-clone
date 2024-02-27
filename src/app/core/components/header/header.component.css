@@ -1,0 +1,43 @@
+/* 
+* {
+  color: red;
+}
+
+header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 30px;
+  background-color: transparent;
+  margin-top: 20px;
+}
+
+.navbar{
+  position: fixed;
+  justify-content: space-between;
+  width: 100vw;
+}
+.logo {
+  position: fixed;
+  left: 20px;
+  width: 80px;
+}
+
+.avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+}
+
+.collapse {
+  margin-left: 100px;
+}
+
+.nav-link {
+  color: rgb(168, 0, 0);
+}
+
+.nav-link:hover {
+  color: red;
+} */
