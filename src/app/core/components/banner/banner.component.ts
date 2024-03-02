@@ -1,10 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent {
-
+export class BannerComponent implements OnChanges{
+  @Input({ required : true}) bannerTitle = ''
+  @Input() bannerOverview = ''
+  @Input() bannerVideoKey = 'UJa1zUYegqo'
+  
+  
+  private sanitizer = inject(DomSanitizer)
+  
+  videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.bannerVideoKey}?autoplay=1&mute=1&loop=1&controls=0`)
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['bannerVideoKey']){
+      this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.bannerVideoKey}?autoplay=1&mute=1&loop=1&controls=0`)
+    }
+    console.log(this.bannerVideoKey);
+  }
 }
